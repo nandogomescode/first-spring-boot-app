@@ -24,7 +24,12 @@ public class HelloWorldController {
     }
 
     @PostMapping("/{id}")
-    public String helloWorldPost(@PathVariable("id") String id, @RequestBody User body) {
-        return "Hello World Post" + body.getName() + id;
+    public String helloWorldPost(@PathVariable("id") String id, @RequestParam(value="filter", defaultValue = "nenhum") String filter ,@RequestBody User body) {
+        return "Hello World " + body.getName() + " " + id;
+    }
+
+    @PostMapping
+    public String teste(@RequestBody User body) {
+        return "Hello World Post" + body;
     }
 }
